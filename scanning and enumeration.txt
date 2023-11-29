@@ -1,0 +1,29 @@
+Scanning and Enumeration
+discover Live Hosts on the network
+sudo netdiscover -i (network interface name)
+nmap -sn 192.168.18.1/24 PING SCAN
+nmap -sn -PR 192.168.18.0-255 ARP SCAN
+Angry IP SCANNER *WINDOWS*
+
+Service And OS Discovery
+nmap -sS -Sv ipaddress
+OS DISCOVERY
+nmap -sS -O ipaddress
+sudo nmap --script smb-os-discovery.nse ipaddress
+cohmprensive scan
+nmap -sS -p 445 -A 192.168.178.10
+
+NETBIOS Enumeration (port 137 and 138)
+nbtstat -a 192.168.18.110
+nbtstat -c
+nmap -sV -v --script nbtstat.nse 192.168.178.10
+nmap -sU -p 137 --script nbtstat.nse 182.168.178.10
+
+sudo nmap -A -p 445 ipaddress
+sudo nmap --script smb-os-discovery.nse ipaddress
+nmap -p 445 --scritp=smb-enum-shares.nse, smb-enum-users.nse ipaddress
+cd /user/share/nmap/scripts;ls | grep smb (to find other scripts to enum smb)
+
+enum4linux THE MOST IMPORTANT ENUM VARIOUS SMB AND NETBIOS ENUM TECHNIQUE
+
+enum4linux -a 192.168.10.10

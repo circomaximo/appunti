@@ -1,0 +1,20 @@
+APPUNTI 1
+
+
+
+how to identify an operating system? With -O flag
+nmap -sv 192.168.0.0/24
+nmap -A 192.168.0.0/24
+
+Mysql have port 3306 and we can search the port with -p 
+ 
+net user  (command to find registered account verified)
+
+RDP port is 3389 nmap -Pn -p -sV 3389 192.168.178.15
+
+
+CRyptool is the tool to decrypt files like hex and find the crypted message
+
+Snow tool is 
+
+ 

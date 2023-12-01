@@ -1,0 +1,31 @@
+Steganography and Hiding Activities
+
+Covert_TCP IP transmit hidden data server client 
+wget https://raw.githubusercontent.com/cudeso/security-tools/master/networktools/covert/covert_tcp.c
+sudo apt install gcc
+cc -o covert_tcp covert_tcp.c compile the listener
+Start the listener on machine 1
+sudo ./covert_tcp -dest 192.168.18.144 -source 192.168.18.95 -source_port 8888 -dest_port 9999 -server -file /home/user/msg1.txt
+Send Messsage from machine 2
+sudo ./covert_tcp -dest 192.168.18.144 -source 192.168.18.95 -source_port 9999 -dest_port 8888 -file /home/kali/msg.txt
+
+Hide Files using alternate data strings
+The NTFS file system includes support for alternate data streams 
+hyde files : type calc.exe > readme.txt:calc.exe
+mklink backdoor.exe readme.txt:calc.cexe --> create symbolic link for backdoor.exe
+dir /r --> is the command to reveal hidden file 
+
+WHITE SPACE STEGANOGRAPHY - SNOW
+https://darkside.com.au/snow/
+SNOW.EXE -C -m "Matteo Poni is who am i" -p "Zembul" test.txt test2.txt
+-m is the message to hide
+-p is the password
+test.txt is the original file
+test2.txt is the target file
+
+SNOW.EXE -C -p "Zembul" test2.txt --> this to see the hidden message inside the file
+
+
+IMAGE STEGANOGRAPHY
+OPEN STEGO 
+STEG ONLINE

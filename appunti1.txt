@@ -58,7 +58,7 @@ or right click on the line , follow--> tcp stream
 how to identify attacking machine? 
 tcp.flag/syn == 1 and tcp.flags.ack == 0
 or go to statistics --> ipv4 addresses > Source and Destinations > Display filter paste tcp.flag/syn == 1 and tcp.flags.ack == 0
-
-
+how to identify total number of attacking machine
+the same in statistics but look at the total number of machine with high packet traffics
 
 

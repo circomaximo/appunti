@@ -90,3 +90,6 @@ nmap -sv --script=http-enum ip_address
 use burp with http 
 open burpsuite and start the proxy 
 
+BANNER GRABBING 
+FTP http://site.com 80
+HEAD / HTTP/1.0

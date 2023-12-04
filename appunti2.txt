@@ -46,7 +46,8 @@ the same for all the elf file to find the highest or the lower entropy value
 How to find the hash of a file 
 use sha384sum to find the hash if the hash is sha384sum 
 sha384sum file.elf and find the sha384 of the files
-or check online https://emn178.github.io/online-tools/sha384_file_hash.html 
+or check online https://emn178.github.io/online-tools/sha384_file_hash.html or other hash online sites
+
 
 
 FINDING A FULL QUALIFIED DOMAIN NAME

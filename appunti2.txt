@@ -94,3 +94,8 @@ open burpsuite and start the proxy
 BANNER GRABBING 
 FTP http://site.com 80
 HEAD / HTTP/1.0
+
+HOW TO USE JSQL TO INJECT
+Open the jsql injection tools , paste the url with parameter id and click attack we can get all the database
+JSQL is installed in parrot machine
+

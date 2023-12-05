@@ -99,3 +99,5 @@ HOW TO USE JSQL TO INJECT
 Open the jsql injection tools , paste the url with parameter id and click attack we can get all the database
 JSQL is installed in parrot machine
 
+find a string with cmd in windows:
+dir /b/s "name*"
